@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Arr;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,65 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Home Page Route
 Route::get('/', function () {
-    return view('home');
+    return view('home',[
+        'greeting' => 'Hello'
+    ]);
 });
 
-Route::get('/about', function () {
-    return view('about');
+//Jobs Page Route
+Route::get('/jobs', function () {
+    return view('jobs',[
+        'jobs' => [
+            [
+                'id' => 1,
+                'title' => 'Designer',
+                'salary' => '$10,000'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Developer',
+                'salary' => '$50,000'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Project Manager',
+                'salary' => '$70,000'
+            ]
+        ]
+    ]);
 });
 
+//Single Job Page Route
+Route::get('/jobs/{id}', function ($id) {
+    // dd($id);
+    $jobs = [
+        [
+            'id' => 1,
+            'title' => 'Designer',
+            'salary' => '$10,000'
+        ],
+        [
+            'id' => 2,
+            'title' => 'Developer',
+            'salary' => '$50,000'
+        ],
+        [
+            'id' => 3,
+            'title' => 'Project Manager',
+            'salary' => '$70,000'
+        ]
+    ];
+    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
+    // Handle the case where the job is not found
+    if (!$job) {
+        abort(404, 'Job not found');
+    }
+    return view('job',['job' => $job]);
+});
+
+//Contact Page Route
 Route::get('/contact', function () {
     return view('contact');
 });
