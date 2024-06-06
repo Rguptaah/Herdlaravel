@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,17 @@ Route::get('/jobs', function () {
 Route::get('/jobs/{id}', function ($id) {
     $job = Job::find($id);
     return view('job',['job' => $job]);
+});
+
+//Blogs Page Route
+Route::get('/blogs', function () {
+    return view('blogs', ['blogs' => Post::all()]);
+});
+
+//Single Blog Page Route
+Route::get('/blogs/{id}', function ($id) {
+    $post = Post::find($id);
+    return view('blog',['blog' => $post]);
 });
 
 //Contact Page Route

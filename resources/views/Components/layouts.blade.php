@@ -8,7 +8,6 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ mix('css/app.css'); }}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -35,6 +34,7 @@
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                                 <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
+                                <x-nav-link href="/blogs" :active="request()->is('blogs')">Blog</x-nav-link>
                                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                             </div>
                         </div>
