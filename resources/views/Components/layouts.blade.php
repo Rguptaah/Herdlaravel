@@ -8,6 +8,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ mix('css/app.css'); }}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -67,7 +68,7 @@
 
                                 <!--
                   Dropdown menu, show/hide based on menu state.
-  
+
                   Entering: "transition ease-out duration-100"
                     From: "transform opacity-0 scale-95"
                     To: "transform opacity-100 scale-100"
